@@ -8,7 +8,8 @@ class Restaurant < ApplicationRecord
     # name,fee等のカラムデータが必ず存在するというバリデーション
     validates :name, :fee, :time_required, presence: true
     # 最大30字以下と制限
-    validates :name, length: { maximum: 30 }
+    DEFAULT_NAME_LENGTH = 30
+    validates :name, length: { maximum: DEFAULT_NAME_LENGTH }
     # 数値のみが使われるようにしている（0よりも大きくならなければならないようにしている）
     validates :fee, numericality: { greater_than: 0 }
 end
